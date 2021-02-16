@@ -1,5 +1,7 @@
 package ensta;
 
+import ships.*;
+
 public class Board 
 {
     protected int taille = 10;

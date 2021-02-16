@@ -1,9 +1,7 @@
 package ensta;
 
-/**
- * Hello world!
- *
- */
+import ships.*;
+
 public class App 
 {
     public static void main( String[] args )
