@@ -1,7 +1,7 @@
 package ensta;
 
-import ships.*;
+//import ships.*;
 
 public enum Orientation {
-    NORD, SUD, EST, OUEST;  
+    NORD, SUD, EST, OUEST;
 }

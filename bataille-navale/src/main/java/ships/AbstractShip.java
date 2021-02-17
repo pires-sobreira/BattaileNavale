@@ -20,6 +20,10 @@ abstract class AbstractShip {
         return this.label;
     }
 
+    public Orientation getOrientation(){
+        return this.orientation;
+    }
+
     public String getNom(){
         return this.nom_navire;
     }
