@@ -3,7 +3,7 @@ package ships;
 import ensta.Orientation;
 
 
-abstract class AbstractShip {
+public abstract class AbstractShip {
     protected char label;
     protected String nom_navire;
     protected int taille_navire;

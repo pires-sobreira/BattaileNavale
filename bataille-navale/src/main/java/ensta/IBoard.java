@@ -16,10 +16,7 @@ public interface IBoard {
     * @param x
     * @param y
     */
-    void putShip(Submarine ship, int x, int y);
-    void putShip(Destroyer ship, int x, int y);
-    void putShip(BattleShip ship, int x, int y);
-    void putShip(AircraftCarrier ship, int x, int y);
+    void putShip(AbstractShip ship, int x, int y);
 
     /**
      * Get if a ship is placed at the given position
