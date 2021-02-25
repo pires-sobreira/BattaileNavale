@@ -216,4 +216,60 @@ public class Board implements IBoard
     public Boolean getHit(int x, int y){
         return tableau_bool_frappes[x][y];
     }
+
+    public Hit sendHit(int x, int y){
+        if(hasShip(x, y)){
+            if(!tableau_navires[x][y].isStruck()){
+                tableau_bool_frappes[x][y] = true;
+                tableau_navires[x][y].addStrike();
+                int aux = -1;
+                if(tableau_navires[x][y].isSunk()){
+                    switch (tableau_navires[x][y].getShip().getLabel().toString()) {
+                        case "C":
+                            //return Hit.CARRIER;
+                            aux = 0;
+                            break;
+                        
+                        case "B":
+                            //return Hit.BATTLESHIP;
+                            aux = 1;
+                            break;
+
+                        case "D":
+                            //return Hit.DESTROYER;
+                            aux = 2;
+                            break;
+
+                        case "S":
+                            //return Hit.SUBMARINE;
+                            aux = 3;
+                            break;
+                        default:
+                            break;
+                    }
+                    if(aux == 0){
+                        return Hit.CARRIER;
+                    }
+                    if(aux == 1){
+                        return Hit.BATTLESHIP;
+                    } 
+                    if(aux == 2){
+                        return Hit.DESTROYER;
+                    }
+                    if(aux == 3){
+                        return Hit.SUBMARINE;
+                    }
+                }
+                else{
+                    return Hit.STIKE;
+                }
+            }
+            else{
+                System.out.println("You have already hit this position");
+                return Hit.INVALID;
+            }
+        }
+        tableau_bool_frappes[x][y] = false;
+        return Hit.MISS;
+    }
 }

@@ -7,7 +7,8 @@ public enum Hit {
     DESTROYER(2, "Frégate"),
     SUBMARINE(3, "Sous-marin"),
     BATTLESHIP(4, "Croiseur"),
-    CARRIER(5, "Porte-avion");
+    CARRIER(5, "Porte-avion"),
+    INVALID(-3, "Invalid");
 
     /* ***
      * Attributs

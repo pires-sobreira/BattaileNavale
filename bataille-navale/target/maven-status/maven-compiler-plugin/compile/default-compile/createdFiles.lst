@@ -16,3 +16,4 @@ ships/ShipState.class
 ships/Destroyer.class
 ensta/ColorUtil.class
 ensta/ColorUtil$Color.class
+ensta/Player$1.class

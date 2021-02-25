@@ -3,7 +3,7 @@ package ensta;
 import ensta.InputHelper.CoordInput;
 import ensta.InputHelper.ShipInput;
 import ships.*;
-import java.util.*; 
+import java.util.*;
 
 public class App 
 {
@@ -12,6 +12,8 @@ public class App
 
         Board board = new Board("nom", 10);
         Board opponentBoard = new Board("op", 10);
+
+        int[] coords = new int[2];
 
         Destroyer destroyer = new Destroyer();
         Submarine submarine1 = new Submarine();
@@ -28,9 +30,14 @@ public class App
 
         board.print();
 
-        Player player = new Player(board, opponentBoard, ships);
+        Player player = new Player(board, board, ships);
         player.putShips();
+        player.sendHit(coords);
 
+        // System.out.println(board.sendHit(0,0));
+        // System.out.println(board.sendHit(0,1));
+        // System.out.println(board.sendHit(0,2));
+        // System.out.println(board.sendHit(0,0));
         // board.putShip(submarine, 1, 1);
         // board.putShip(destroyer, 7, 0);
         // board.putShip(aircraftCarrier, 2, 0);
@@ -40,7 +47,7 @@ public class App
         // board.putShip(aircraftCarrier, 9, 8);
 
         // board.setHit(board.hasShip(7, 0), 7, 0);
-        //board.print();
+        // board.print();
 
         
     }

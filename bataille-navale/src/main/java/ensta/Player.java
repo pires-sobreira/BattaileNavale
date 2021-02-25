@@ -74,16 +74,41 @@ public class Player {
     }
 
     public Hit sendHit(int[] coords) {
-        boolean done = true;
+        boolean done = false;
         Hit hit = null;
+        int ship_destroy = 0;
 
         do {
             System.out.println("où frapper?");
             InputHelper.CoordInput hitInput = InputHelper.readCoordInput();
+            coords[0] = hitInput.x;
+            coords[1] = hitInput.y;
             // TODO call sendHit on this.opponentBoard
-
+            hit = this.opponentBoard.sendHit(coords[0], coords[1]);
             // TODO : Game expects sendHit to return BOTH hit result & hit coords.
+            System.out.println("Frappe: " + hit + " / Coords: " + coords[0] + "," + coords[1]);
+            switch (hit) {
+                case DESTROYER:
+                    ship_destroy++;
+                    break;
+                case SUBMARINE:
+                    ship_destroy++;
+                    break;
+                case BATTLESHIP:
+                    ship_destroy++;
+                    break;
+                case CARRIER:
+                    ship_destroy++;
+                    break;
+                default:
+                    break;
+            }
+            if(ship_destroy == 5){
+                done = true;
+            }
             // return hit is obvious. But how to return coords at the same time ?
+            this.board.print();
+
         } while (!done);
 
         return hit;
