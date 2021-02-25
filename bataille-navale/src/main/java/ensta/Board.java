@@ -8,9 +8,9 @@ public class Board implements IBoard
     protected String nom_tableau;
     protected String[] line_tableau;
     protected String line_header, line_tableau_indicator;
-    protected char[][] tableau_char_navires;
+    protected ShipState[][] tableau_navires;
     protected char[] columns;
-    protected boolean[][] tableau_bool_frappes;
+    protected Boolean[][] tableau_bool_frappes;
 
     
 
@@ -18,26 +18,20 @@ public class Board implements IBoard
     {
         this.nom_tableau = nom;
         this.taille = taille;
-        this.tableau_char_navires = new char[taille][taille];
-        this.tableau_bool_frappes = new boolean[taille][taille];
+        this.tableau_navires = new ShipState[taille][taille];
+        this.tableau_bool_frappes = new Boolean[taille][taille];
         this.line_tableau = new String[taille];
         this.columns = new char[taille];
-
-        initTableauChar(tableau_char_navires);
-        initTableauBool(tableau_bool_frappes);
     }
 
     public Board( String nom )
     {
         this.nom_tableau = nom;
         this.taille = 10;
-        this.tableau_char_navires = new char[taille][taille];
-        this.tableau_bool_frappes = new boolean[taille][taille];
+        this.tableau_navires = new ShipState[taille][taille];
+        this.tableau_bool_frappes = new Boolean[taille][taille];
         this.line_tableau = new String[taille];
         this.columns = new char[taille];
-
-        initTableauChar(tableau_char_navires);
-        initTableauBool(tableau_bool_frappes);
     }
 
     protected void columnsName()
@@ -48,25 +42,6 @@ public class Board implements IBoard
         }
     }
 
-    protected void initTableauChar(char[][] tableau)
-    {
-        for (int i = 0; i < taille; i++){
-            for (int j = 0; j < taille; j++){
-                tableau[i][j] = '.';
-                tableau[i][j] = '.';
-            }
-        }
-    }
-
-    protected void initTableauBool(boolean[][] tableau)
-    {
-        for (int i = 0; i < taille; i++){
-            for (int j = 0; j < taille; j++){
-                tableau[i][j] = false;
-            }
-        }
-    }
-
     protected void setTableauIndicator()
     {
         line_tableau_indicator = "Navire:";
@@ -74,6 +49,8 @@ public class Board implements IBoard
             line_tableau_indicator += " ";
         }
         line_tableau_indicator += "Frappes:";
+
+        System.out.println(line_tableau_indicator);
     }
 
     protected void setTableauHeader()
@@ -88,6 +65,12 @@ public class Board implements IBoard
         for (int i = 0; i < taille; i++){
             line_header += " " + columns[i];
         }
+
+        System.out.println(line_header);
+    }
+
+    protected Boolean[][] getFrappes(){
+        return this.tableau_bool_frappes;
     }
 
     protected void PrintTableau()
@@ -95,36 +78,38 @@ public class Board implements IBoard
         for (int i = 0; i < taille; i++){
             System.out.print(i + " ");
             for (int j = 0; j < taille; j++){
-                System.out.print(tableau_char_navires[i][j] + " ");
+                //System.out.print(tableau_char_navires[i][j] + " ");
+                if(this.tableau_navires[i][j] == null) 
+                        System.out.print(". ");
+                else {
+                    if (this.getFrappes()[i][j] == null)
+                        System.out.print(this.tableau_navires[i][j].getShip().getLabel() + " ");
+                    else
+                        System.out.print(ColorUtil.colorize(this.tableau_navires[i][j].getShip().getLabel() + " ", ColorUtil.Color.RED));
+                }
             }
             System.out.print("     ");
             System.out.print(i + " ");
             for (int k = 0; k < taille; k++){
-                if(!tableau_bool_frappes[i][k]){
+                if(tableau_bool_frappes[i][k] == null)
                     System.out.print(". ");
-                }
-                else{
-                    System.out.print("X ");
-                }
+                
+                else if(tableau_bool_frappes[i][k] == true)
+                    System.out.print(ColorUtil.colorize("X ", ColorUtil.Color.RED));
+                
+                else 
+                    System.out.print(ColorUtil.colorize("X ", ColorUtil.Color.WHITE));
             }
             System.out.println("");
         }
-    }
-
-
-    protected void setHeaderToPrint()
-    {
-        setTableauIndicator();
-        setTableauHeader();
     }
 
     public void print()
     {
         setTableauIndicator();
         setTableauHeader();
-        //System.out.println("\n");
-        System.out.println(line_tableau_indicator);
-        System.out.println(line_header);
+        
+        
         PrintTableau(); 
         System.out.println("\n");
     }
@@ -146,8 +131,8 @@ public class Board implements IBoard
                 }
                 if(setpos){
                     for (int i = y; i < y + ship.getTailleNavire(); i++){
-                        
-                        tableau_char_navires[x][i] = ship.getLabel();
+                        tableau_navires[x][i] = new ShipState(ship);
+                        tableau_navires[x][i].getShip().setLabel(ship.getLabel());
                     }
                 }
                 else{
@@ -162,8 +147,8 @@ public class Board implements IBoard
                 }
                 if(setpos){
                     for (int i = x; i > x - ship.getTailleNavire(); i--){
-                        
-                        tableau_char_navires[i][y] = ship.getLabel();
+                        tableau_navires[i][y] = new ShipState(ship);
+                        tableau_navires[i][y].getShip().setLabel(ship.getLabel());
                     }
                 }
                 else{
@@ -178,8 +163,9 @@ public class Board implements IBoard
                 }
                 if(setpos){
                     for (int i = x; i < x + ship.getTailleNavire(); i++){
-                        
-                        tableau_char_navires[i][y] = ship.getLabel();
+                        //tableau_char_navires[i][y] = ship.getLabel();
+                        tableau_navires[i][y] = new ShipState(ship);
+                        tableau_navires[i][y].getShip().setLabel(ship.getLabel());
                     }
                 }
                 else{
@@ -195,8 +181,9 @@ public class Board implements IBoard
                     }
                     if(setpos){
                         for (int i = y; i > y - ship.getTailleNavire(); i--){
-                            
-                            tableau_char_navires[x][i] = ship.getLabel();
+                            //tableau_char_navires[x][i] = ship.getLabel();
+                            tableau_navires[i][y] = new ShipState(ship);
+                            tableau_navires[i][y].getShip().setLabel(ship.getLabel());
                         }
                     }
                     else{
@@ -207,7 +194,6 @@ public class Board implements IBoard
                     break;
                 }
         } catch (Exception e) {
-            //tableau_char_navires = tableau_char_navires_aux2;
             System.out.println("invalid position! out of the board");
         }
         
@@ -215,7 +201,7 @@ public class Board implements IBoard
     
 
     public boolean hasShip(int x, int y){
-        if(tableau_char_navires[x][y] != '.'){
+        if(tableau_navires[x][y] != null){
             return true;
         }
         else return false;

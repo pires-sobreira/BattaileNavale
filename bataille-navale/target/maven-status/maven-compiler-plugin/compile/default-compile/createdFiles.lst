@@ -12,4 +12,7 @@ ensta/InputHelper$CoordInput.class
 ships/AbstractShip.class
 ensta/InputHelper$ShipInput.class
 ensta/Board$1.class
+ships/ShipState.class
 ships/Destroyer.class
+ensta/ColorUtil.class
+ensta/ColorUtil$Color.class
