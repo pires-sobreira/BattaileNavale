@@ -26,6 +26,8 @@ public class App
         ships.add(battleShip);
         ships.add(aircraftCarrier);
 
+        board.print();
+
         Player player = new Player(board, opponentBoard, ships);
         player.putShips();
 
@@ -38,7 +40,7 @@ public class App
         // board.putShip(aircraftCarrier, 9, 8);
 
         // board.setHit(board.hasShip(7, 0), 7, 0);
-        board.print();
+        //board.print();
 
         
     }

@@ -90,50 +90,42 @@ public class Board implements IBoard
         }
     }
 
-    protected void setTableauNavire()
+    protected void PrintTableau()
     {
         for (int i = 0; i < taille; i++){
-            line_tableau[i] = i + " ";
+            System.out.print(i + " ");
             for (int j = 0; j < taille; j++){
-                line_tableau[i] += tableau_char_navires[i][j] + " ";
+                System.out.print(tableau_char_navires[i][j] + " ");
             }
-            line_tableau[i] += "     ";
-        }
-    }
-
-    protected void setTableauFrappes()
-    {
-        for (int i = 0; i < taille; i++){
-            line_tableau[i] += i + " ";
-            for (int j = 0; j < taille; j++){
-                if(!tableau_bool_frappes[i][j]){
-                    line_tableau[i] += ". ";
+            System.out.print("     ");
+            System.out.print(i + " ");
+            for (int k = 0; k < taille; k++){
+                if(!tableau_bool_frappes[i][k]){
+                    System.out.print(". ");
                 }
                 else{
-                    line_tableau[i] += "X ";
+                    System.out.print("X ");
                 }
             }
-            line_tableau[i] += "     ";
+            System.out.println("");
         }
     }
 
-    protected void tableauToPrint()
+
+    protected void setHeaderToPrint()
     {
         setTableauIndicator();
         setTableauHeader();
-        setTableauNavire();  
-        setTableauFrappes();
     }
 
     public void print()
     {
-        tableauToPrint();
-        System.out.println("\n");
+        setTableauIndicator();
+        setTableauHeader();
+        //System.out.println("\n");
         System.out.println(line_tableau_indicator);
         System.out.println(line_header);
-        for (int i = 0; i < taille; i++){
-            System.out.println(line_tableau[i]);               
-        }
+        PrintTableau(); 
         System.out.println("\n");
     }
 
