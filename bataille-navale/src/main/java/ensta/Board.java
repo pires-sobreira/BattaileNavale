@@ -73,16 +73,22 @@ public class Board implements IBoard
         return this.tableau_bool_frappes;
     }
 
-    protected void PrintTableau()
+    protected void PrintTableau(Board opponent)
     {
         for (int i = 0; i < taille; i++){
             System.out.print(i + " ");
             for (int j = 0; j < taille; j++){
                 //System.out.print(tableau_char_navires[i][j] + " ");
-                if(this.tableau_navires[i][j] == null) 
+                if(this.tableau_navires[i][j] == null){ 
+                    if(opponent.getFrappes()[i][j] == null){
                         System.out.print(". ");
+                    }
+                    else{
+                        System.out.print("X ");
+                    }
+                }
                 else {
-                    if (this.getFrappes()[i][j] == null)
+                    if (opponent.getFrappes()[i][j] == null)
                         System.out.print(this.tableau_navires[i][j].getShip().getLabel() + " ");
                     else
                         System.out.print(ColorUtil.colorize(this.tableau_navires[i][j].getShip().getLabel() + " ", ColorUtil.Color.RED));
@@ -104,13 +110,13 @@ public class Board implements IBoard
         }
     }
 
-    public void print()
+    public void print(Board opponent)
     {
         setTableauIndicator();
         setTableauHeader();
         
         
-        PrintTableau(); 
+        PrintTableau(opponent); 
         System.out.println("\n");
     }
 
@@ -211,6 +217,9 @@ public class Board implements IBoard
         if(hit){
             tableau_bool_frappes[x][y] = true;
         }
+        else {
+            tableau_bool_frappes[x][y] = false;
+        }
     }
 
     public Boolean getHit(int x, int y){
@@ -220,7 +229,7 @@ public class Board implements IBoard
     public Hit sendHit(int x, int y){
         if(hasShip(x, y)){
             if(!tableau_navires[x][y].isStruck()){
-                tableau_bool_frappes[x][y] = true;
+                //tableau_bool_frappes[x][y] = true;
                 tableau_navires[x][y].addStrike();
                 int aux = -1;
                 if(tableau_navires[x][y].isSunk()){
@@ -269,7 +278,7 @@ public class Board implements IBoard
                 return Hit.INVALID;
             }
         }
-        tableau_bool_frappes[x][y] = false;
+        //tableau_bool_frappes[x][y] = false;
         return Hit.MISS;
     }
 }

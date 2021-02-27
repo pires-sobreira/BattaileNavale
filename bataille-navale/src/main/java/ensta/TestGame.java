@@ -10,69 +10,69 @@ public class TestGame
     public static void main( String[] args )
     {      
 
-        Board board = new Board("nom", 10);
-        //Board opponentBoard = new Board("op", 10);
+        // Board board = new Board("nom", 10);
+        // //Board opponentBoard = new Board("op", 10);
 
-        int[] coords = new int[2];
-        int shipsdestroyed = 0;
+        // int[] coords = new int[2];
+        // int shipsdestroyed = 0;
 
-        Hit hit;
+        // Hit hit;
 
-        char c;
-        int aux;
+        // char c;
+        // int aux;
 
-        String msg;
+        // String msg;
 
-        Destroyer destroyer = new Destroyer();
-        Submarine submarine1 = new Submarine();
-        Submarine submarine2 = new Submarine();
-        BattleShip battleShip = new BattleShip();
-        AircraftCarrier aircraftCarrier = new AircraftCarrier();
+        // Destroyer destroyer = new Destroyer();
+        // Submarine submarine1 = new Submarine();
+        // Submarine submarine2 = new Submarine();
+        // BattleShip battleShip = new BattleShip();
+        // AircraftCarrier aircraftCarrier = new AircraftCarrier();
         
-        List<AbstractShip> ships = new ArrayList<AbstractShip>();
-        ships.add(destroyer);
-        ships.add(submarine1);
-        ships.add(submarine2);
-        ships.add(battleShip);
-        ships.add(aircraftCarrier);
+        // List<AbstractShip> ships = new ArrayList<AbstractShip>();
+        // ships.add(destroyer);
+        // ships.add(submarine1);
+        // ships.add(submarine2);
+        // ships.add(battleShip);
+        // ships.add(aircraftCarrier);
 
-        board.print();
+        // board.print();
 
-        BattleShipsAI battleAi = new BattleShipsAI(board, board);
-        //battleAi.putShips(ships);
-        battleAi.putShips(ships.toArray(new AbstractShip[ships.size()]));
+        // BattleShipsAI battleAi = new BattleShipsAI(board, board);
+        // //battleAi.putShips(ships);
+        // battleAi.putShips(ships.toArray(new AbstractShip[ships.size()]));
 
-        do{
-            hit = battleAi.sendHit(coords);
+        // do{
+        //     hit = battleAi.sendHit(coords);
 
-            msg = hit.toString();
+        //     msg = hit.toString();
 
-            switch (hit.toString()) {
-                case "Frégate":
-                    shipsdestroyed++;
-                    break;
-                case "Sous-marin":
-                    shipsdestroyed++;
-                    break;
-                case "Croiseur":
-                    shipsdestroyed++;
-                    break;  
-                case "Porte-avion":
-                    shipsdestroyed++;
-                    break;   
-                default:
-                    break;
-            }
+        //     switch (hit.toString()) {
+        //         case "Frégate":
+        //             shipsdestroyed++;
+        //             break;
+        //         case "Sous-marin":
+        //             shipsdestroyed++;
+        //             break;
+        //         case "Croiseur":
+        //             shipsdestroyed++;
+        //             break;  
+        //         case "Porte-avion":
+        //             shipsdestroyed++;
+        //             break;   
+        //         default:
+        //             break;
+        //     }
 
-            aux = coords[1]+65;
+        //     aux = coords[1]+65;
 
-            System.out.println("Frappe: " + hit + " / Coords: " + coords[0] + "," + (char)aux);
-            board.print();
+        //     System.out.println("Frappe: " + hit + " / Coords: " + coords[0] + "," + (char)aux);
+        //     board.print();
 
-            sleep(1000);
-        }while(shipsdestroyed < 5);
+        //     sleep(1000);
+        // }while(shipsdestroyed < 5);
 
-        aux = coords[1]+65;
+        // aux = coords[1]+65;
         
         //ystem.out.println("Frappe: " + hit + " / Coords: " + coords[0] + "," + coords[1]);
         

@@ -87,12 +87,8 @@ public class BattleShipsAI implements Serializable {
                         break;
                     default:
                         break;
-                }
-                System.out.println(s.getLabel() + " Orientantion: " + ori + " x: " + x + " y: " + y);
-                System.out.println(canPutShip(s, x, y));
-                
+                }                
             } while(!canPutShip(s, x, y));
-            
             board.putShip(s, x, y);
         }
     }
@@ -163,7 +159,6 @@ public class BattleShipsAI implements Serializable {
             switch (ship.getOrientation()) {
                 case EST:
                     for (int i = y; i < y + ship.getTailleNavire(); i++){
-                        System.out.println("x: " + x + " y: " + i + " has ship: " + board.hasShip(x, i));
                         if(board.hasShip(x, i)){
                             setpos = false;
                         }
@@ -171,7 +166,6 @@ public class BattleShipsAI implements Serializable {
                     break;
                 case NORD:
                     for (int i = x; i > x - ship.getTailleNavire(); i--){
-                        System.out.println("x: " + i + " y: " + y + " has ship: " + board.hasShip(i, y));
                         if(board.hasShip(i, y)){
                             setpos = false;
                         }
@@ -179,7 +173,6 @@ public class BattleShipsAI implements Serializable {
                     break;
                 case SUD:
                     for (int i = x; i < x + ship.getTailleNavire(); i++){
-                        System.out.println("x: " + i + " y: " + y + " has ship: " + board.hasShip(i, y));
                         if(board.hasShip(i, y)){
                         setpos = false;
                         }
@@ -188,7 +181,6 @@ public class BattleShipsAI implements Serializable {
         
                 case OUEST:
                     for (int i = y; i > y - ship.getTailleNavire(); i--){
-                        System.out.println("x: " + x + " y: " + i + " has ship: " + board.hasShip(x, i));
                         if(board.hasShip(x, i)){
                             setpos = false;
                         }

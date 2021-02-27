@@ -22,6 +22,7 @@ public class Player {
         this.board = board;
         this.ships = ships.toArray(new AbstractShip[0]);
         this.opponentBoard = opponentBoard;
+        System.out.println("player created");
     }
 
     /* **
@@ -40,17 +41,19 @@ public class Player {
             String msg = String.format("placer %d : %s(%d)", i + 1, s.getNom(), s.getTailleNavire());
             System.out.println(msg);
             InputHelper.ShipInput res = InputHelper.readShipInput();
-            // TODO set ship orientation
-            setOrientation(res.orientation, s);
-            // TODO put ship at given position
-            this.board.putShip(s, res.x, res.y);
-            // TODO when ship placement successful
-            if (board.hasShip(res.x, res.y)){
-                ++i;
+            if(!board.hasShip(res.x, res.y)){
+                // TODO set ship orientation
+                setOrientation(res.orientation, s);
+                // TODO put ship at given position
+                this.board.putShip(s, res.x, res.y);
+                // TODO when ship placement successful
+                if (board.hasShip(res.x, res.y)){
+                    ++i;
+                }
             }
             done = i == 5;
 
-            board.print();
+            board.print(this.opponentBoard);
         } while (!done);
     }
 
@@ -89,25 +92,41 @@ public class Player {
             System.out.println("Frappe: " + hit + " / Coords: " + coords[0] + "," + coords[1]);
             switch (hit) {
                 case DESTROYER:
+                    board.setHit(true, coords[0], coords[1]);
                     ship_destroy++;
+                    done = true;
                     break;
                 case SUBMARINE:
+                    board.setHit(true, coords[0], coords[1]);
                     ship_destroy++;
+                    done = true;
                     break;
                 case BATTLESHIP:
+                    board.setHit(true, coords[0], coords[1]);
                     ship_destroy++;
+                    done = true;
                     break;
                 case CARRIER:
+                    board.setHit(true, coords[0], coords[1]);
                     ship_destroy++;
+                    done = true;
+                    break;
+                case STIKE:
+                    board.setHit(true, coords[0], coords[1]);
+                    done = true;
+                    break;
+                case MISS:
+                    board.setHit(false, coords[0], coords[1]);
+                    done = true;
                     break;
                 default:
                     break;
             }
-            if(ship_destroy == 5){
-                done = true;
-            }
+            // if(ship_destroy == 5){
+            //     done = true;
+            // }
             // return hit is obvious. But how to return coords at the same time ?
-            this.board.print();
+            this.board.print(this.opponentBoard);
 
         } while (!done);
 
