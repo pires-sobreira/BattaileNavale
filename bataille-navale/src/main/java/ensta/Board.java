@@ -182,8 +182,8 @@ public class Board implements IBoard
                     if(setpos){
                         for (int i = y; i > y - ship.getTailleNavire(); i--){
                             //tableau_char_navires[x][i] = ship.getLabel();
-                            tableau_navires[i][y] = new ShipState(ship);
-                            tableau_navires[i][y].getShip().setLabel(ship.getLabel());
+                            tableau_navires[x][i] = new ShipState(ship);
+                            tableau_navires[x][i].getShip().setLabel(ship.getLabel());
                         }
                     }
                     else{

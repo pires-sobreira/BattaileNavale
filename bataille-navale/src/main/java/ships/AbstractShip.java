@@ -8,7 +8,7 @@ public abstract class AbstractShip {
     protected Character label;
     protected String nom_navire;
     protected int taille_navire;
-    protected Orientation orientation;
+    public Orientation orientation;
     protected int strikeCount;
     
 

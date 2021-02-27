@@ -1,11 +1,14 @@
 ensta/Player.class
+ships/BattleShipsAI$1.class
 ensta/Board.class
 ships/Submarine.class
 ships/AircraftCarrier.class
+ships/BattleShipsAI.class
 ensta/Hit.class
 ensta/Orientation.class
 ensta/IBoard.class
 ensta/InputHelper.class
+ensta/TestGame.class
 ships/BattleShip.class
 ensta/App.class
 ensta/InputHelper$CoordInput.class

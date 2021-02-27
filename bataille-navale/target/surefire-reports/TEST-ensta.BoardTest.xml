@@ -5,7 +5,7 @@
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.runtime.version" value="14.0.2+12-Ubuntu-120.04"/>
-    <property name="java.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/test-classes:/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/classes:/home/gpsobreira/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="java.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/test-classes:/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/classes:/home/gpsobreira/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
     <property name="user.name" value="gpsobreira"/>
     <property name="java.vm.vendor" value="Private Build"/>
     <property name="path.separator" value=":"/>
@@ -20,15 +20,15 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="localRepository" value="/home/gpsobreira/.m2/repository"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-14-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/surefire/surefirebooter3144491640698835365.jar /mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/surefire 2021-02-25T23-29-08_648-jvmRun1 surefire2416486466164707261tmp surefire_017366533809463691821tmp"/>
+    <property name="sun.java.command" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/surefire/surefirebooter3561946300015061101.jar /mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/surefire 2021-02-27T12-25-45_732-jvmRun1 surefire6071957424280935795tmp surefire_011807967580555141174tmp"/>
     <property name="java.vendor.url.bug" value="Unknown"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/test-classes:/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/classes:/home/gpsobreira/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
+    <property name="surefire.test.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/test-classes:/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/classes:/home/gpsobreira/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.version" value="14.0.2"/>
     <property name="user.home" value="/home/gpsobreira"/>
-    <property name="user.dir" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale"/>
+    <property name="user.dir" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale"/>
     <property name="os.arch" value="amd64"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -36,7 +36,7 @@
     <property name="java.version.date" value="2020-07-14"/>
     <property name="java.home" value="/usr/lib/jvm/java-14-openjdk-amd64"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale"/>
+    <property name="basedir" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.version" value="14.0.2+12-Ubuntu-120.04"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
-    <property name="surefire.real.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex6/BattaileNavale/bataille-navale/target/surefire/surefirebooter3144491640698835365.jar"/>
+    <property name="surefire.real.class.path" value="/mnt/c/Users/gabri/OneDrive/Área de Trabalho/Faculdade/ENSTA/2020.2/IN205/BN_Ex7/BattaileNavale/bataille-navale/target/surefire/surefirebooter3561946300015061101.jar"/>
   </properties>
   <testcase name="testApp" classname="ensta.AppTest" time="0"/>
 </testsuite>
